@@ -8,8 +8,9 @@ function connexion()
     $dbname= "immoTest";
 
     try {
-        $idcon = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
-        return $idcon;
+        $bdd = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
+        $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $bdd;
     } catch (PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
         return FALSE;

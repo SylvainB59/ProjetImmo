@@ -12,7 +12,7 @@ ViewTemplate::header();
 		$token = base_convert(hash('sha256', time() . mt_rand()), 16, 36);
 		ModelUser::addUser($_POST['nom'], $_POST['prenom'], $_POST['mail'], $_POST['pass'], $_POST['tel'], $token);
 		?>
-		<p>inscription OK. Veuillez <a href="ConfirmationMail.php?mail=<?php echo $_POST['mail'] ?>&token=<?php echo $token ?>">cliquer ici</a> pour valider votre compte</p>
+		<p>inscription OK. Veuillez <a href="confirmationMail.php?mail=<?php echo $_POST['mail'] ?>&token=<?php echo $token ?>">cliquer ici</a> pour valider votre compte</p>
 		<?php
 	}else{
 		ViewUser::addUser();
