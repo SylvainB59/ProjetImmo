@@ -19,8 +19,12 @@ class ViewUser{
 					<input type="email" class="form-control" id="mail" name="mail" value="<?php echo $formSubmit?$_POST['mail']:'';?>">
 				</div>
 				<div class="form-group">
-					<label for="pass">mot de pass</label>
+					<label for="pass">mot de pass <span class="small">(doit contenir au moins 1maj, 1min, 1chiffre et 1[$ @ % * + - _ !])</span></label>
 	                <input type="password" name="pass" id="pass" class="form-control" aria-describedby="pass" placeholder="mot de passe" required>
+	            </div>
+	            <div class="form-group">
+					<label for="pass">confirm mot de pass</label>
+	                <input type="password" name="confirmPass" id="confirmPass" class="form-control" aria-describedby="confirmPass" placeholder="mot de passe" required>
 	            </div>
 				<div class="form-group">
 					<label for="tel">tel</label>

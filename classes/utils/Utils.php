@@ -1,5 +1,23 @@
 <?php 
 class Utils{
+	public static function confirmationMdp($mdp1, $mdp2) // vérifier au moment de l'inscription, s'il n'y a pas d'erruer dans le mdp
+    {
+        if($mdp1 === $mdp2){
+            return true;
+    	}else{
+    		return false;
+    	}
+	}
+
+	public static function verificationMdp($mdp1, $mdp2) // vérifier au moment du login si le mdp utilisateur correspond au mdp hashé en dbb
+    {
+        if(password_verify($mdp1,$mdp2)){
+            return true;
+    	}else{
+    		return false;
+    	}
+	}
+
 	public static function validation($str, $type)
     {
         $valide = false;
@@ -10,7 +28,8 @@ class Utils{
             "nom" => "/^[\p{L}\s]{2,}$/u",
             "prenom" => "/^[\p{L}\s]{2,}$/u",
             "tel" => "/^[+]?[0-9]{8,}$/",
-            "pass" => "/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,15})$/",
+            # "pass" => "/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{3,15})$/",
+            "pass" => "/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{3,15}$/",
             "photo" => "/^[\w\s-.]{1,}(.jpg|.jpeg|.png|.gif)$/",
             "id" => "/[\d]+/"
 
