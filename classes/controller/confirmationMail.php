@@ -1,5 +1,7 @@
 <?php 
 require_once '../model/ModelUser.php';
+require_once '../view/ViewTemplate.php';
+
 ViewTemplate::head();
 ViewTemplate::header();
 ViewTemplate::menu();
