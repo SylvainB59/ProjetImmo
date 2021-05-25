@@ -39,7 +39,7 @@ class Utils{
 
         //https://www.php.net/manual/fr/filter.filters.validate.php
         switch ($type) {
-            case "email":
+            case "mail":
                 if (filter_var($str, FILTER_VALIDATE_EMAIL)) {
                     $valide = true;
                 }
@@ -72,13 +72,12 @@ class Utils{
             if ($tab[1]) {
                 $erreurs .= $tab[1];
             }
-            $donneesValides[] = $tab[0];
+            $donneesValides[$types[$i]] = $tab[0];
         }
         if ($erreurs) {
             ViewTemplate::alert($erreurs, "danger", null);
             return false;
         }
-        return
-            $donneesValides;
+        return $donneesValides;
     }
 }

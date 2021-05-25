@@ -7,7 +7,6 @@ function validation(str, type) {
         photo: /^[\w]{2,}(.jpg|.jpeg|.png|.gif)$/,
         test: /^[a-zA-Z]+$/,
     };
-    console.log('B', str, type, typesTab.type, typesTab[type])
     let valide = false;
     if (typesTab[type].test(str)) {
         valide = true;
