@@ -43,12 +43,13 @@ class ViewTemplate{
 						var_dump($_SESSION);
 						?>
 						<p>Bonjour M/Mme <?php echo $_SESSION['nom']; ?></p>
+						<a href="deconnexion.php">deconnexion</a>
 						<?php
 					}else{
 						?>
-						<a href="connexion.php">connexion</a>
+						<a href="connexion.php">Connexion</a>
 						<span> / </span>
-						<a href="inscription.php">inscription</a>
+						<a href="inscription.php">Inscription</a>
 						<?php
 					}
 					?>
@@ -56,10 +57,6 @@ class ViewTemplate{
 			</div>
 		</nav>
 		<?php
-	}
-
-	public static function connect(){
-
 	}
 
 	public static function footer(){

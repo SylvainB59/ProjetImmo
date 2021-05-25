@@ -21,9 +21,12 @@ ViewTemplate::menu();
 				$_SESSION['id']=ModelUser::userByMail($_POST['mail'])['id'];
 				$_SESSION['nom']=ModelUser::userByMail($_POST['mail'])['nom'];
 				$_SESSION['mail']=$_POST['mail'];
+				ViewTemplate::alert('Vous etes maintenant connecté.', 'success', 'accueil.php', 'Accueil');
 			}else{
-				ViewTemplate::alert('mauvais mdp', "danger", "Accueil.php");
+				ViewTemplate::alert('Mauvais mdp', 'danger', 'connexion.php', 'Retour');
 			}
+		}else{
+			ViewTemplate::alert('Mail inexistant', 'danger', 'connexion.php', 'Retour');
 		}
 	}else{
 		ViewUser::connectUser();
