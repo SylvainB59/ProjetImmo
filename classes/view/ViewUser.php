@@ -39,4 +39,27 @@ class ViewUser{
 		<?php
 	}
 
+	public static function connectUser(){
+		isset($_POST['confirmConnectUser']) ? $formSubmit = true : $formSubmit = false;
+		?>
+		<div>
+			<div id="erreurs"></div>
+			<form name="connectUser" id="connectUser" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" target="_self"  enctype="multipart/form-data">
+				<div class="form-group">
+					<label for="mail">mail</label>
+					<input type="email" class="form-control" id="mail" name="mail" value="<?php echo $formSubmit?$_POST['mail']:'';?>">
+				</div>
+				<div class="form-group">
+					<label for="pass">mot de pass</label>
+	                <input type="password" name="pass" id="pass" class="form-control" aria-describedby="pass" placeholder="mot de passe" required>
+	            </div>
+				<!-- <div class="form-group"> -->
+			  		<button type="submit" name="confirmConnectUser" class="btn btn-primary">valider</button>
+			  		<!-- <button type="reset" name="annuler" class="btn btn-danger">Annuler</button> -->
+			  	<!-- </div> -->
+			</form>
+		</div>
+		<?php
+	}
+
 }

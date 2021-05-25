@@ -80,4 +80,13 @@ class Utils{
         }
         return $donneesValides;
     }
+
+    public static function verification($mdp1, $mdp2)
+    {
+        if(password_verify($mdp1,$mdp2)){
+            return true;
+    	}else{
+    		return false;
+    	}
+	}
 }

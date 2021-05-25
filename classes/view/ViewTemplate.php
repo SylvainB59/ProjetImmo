@@ -37,9 +37,29 @@ class ViewTemplate{
 			    		<a class="nav-link" href="#">TEST</a>
 			  		</li>
 				</ul>
+				<div>
+					<?php
+					if(isset($_SESSION['id'])){
+						var_dump($_SESSION);
+						?>
+						<p>Bonjour M/Mme <?php echo $_SESSION['nom']; ?></p>
+						<?php
+					}else{
+						?>
+						<a href="connexion.php">connexion</a>
+						<span> / </span>
+						<a href="inscription.php">inscription</a>
+						<?php
+					}
+					?>
+				</div>
 			</div>
 		</nav>
 		<?php
+	}
+
+	public static function connect(){
+
 	}
 
 	public static function footer(){

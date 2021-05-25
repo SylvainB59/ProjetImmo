@@ -33,4 +33,11 @@ class ModelUser{
 		$reponse->execute([$id]);
 		return $reponse->fetch(PDO::FETCH_ASSOC);
 	}
+
+	public static function MdpConnexion($mail){
+        $db = connexion();
+        $reponse = $db->prepare("SELECT pass FROM user WHERE mail=? ");
+        $reponse->execute([$mail]);
+        return $reponse->fetch(PDO::FETCH_ASSOC);
+    }
 }
