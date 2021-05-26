@@ -2,9 +2,6 @@
 class ViewTemplate{
 	public static function head(){
 		?>
-		<!DOCTYPE html>
-		<html>
-
 		<head>
 		    <meta charset="utf-8" />
 		    <meta name="viewport" content="width=device-width, initial-scale=1  shrink-to-fit=no" />
@@ -40,16 +37,15 @@ class ViewTemplate{
 				<div>
 					<?php
 					if(isset($_SESSION['id'])){
-						var_dump($_SESSION);
 						?>
 						<p>Bonjour M/Mme <?php echo $_SESSION['nom']; ?></p>
-						<a href="deconnexion.php">deconnexion</a>
+						<a href="userDeconnexion.php">deconnexion</a>
 						<?php
 					}else{
 						?>
-						<a href="connexion.php">Connexion</a>
+						<a href="userConnexion.php">Connexion</a>
 						<span> / </span>
-						<a href="inscription.php">Inscription</a>
+						<a href="userInscription.php">Inscription</a>
 						<?php
 					}
 					?>
@@ -81,10 +77,11 @@ class ViewTemplate{
 		?>
 		<div class="alert alert-<?php echo $type; ?>" role="alert">
             <p><?php echo $message;
-            if($lien!=null){ 
-              	?>
-              	<a href="<?php echo $lien; ?>"><?php echo $textLien; ?></a>
-            <?php } ?></p>
+	            if($lien!=null){ 
+	              	?>
+	              	<a href="<?php echo $lien; ?>"><?php echo $textLien; ?></a>
+	            <?php } ?>
+	        </p>
         </div>
         <?php
 	}

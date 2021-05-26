@@ -3,13 +3,17 @@ require_once '../view/ViewTemplate.php';
 require_once '../view/ViewUser.php';
 require_once '../model/ModelUser.php';
 require_once '../utils/Utils.php';
-
+?>
+<!DOCTYPE html>
+<html>
+<?php
 ViewTemplate::head();
-ViewTemplate::header();
-ViewTemplate::menu();
 ?>
 <body>
-	<?php 
+	<?php
+	ViewTemplate::header();
+	ViewTemplate::menu();
+	 
 	if(isset($_POST['confirmAddUser'])){
 		if(ModelUser::userByMail($_POST['mail'])){
 			ViewTemplate::alert('Mail existe déjà.', 'warning');
@@ -31,8 +35,9 @@ ViewTemplate::menu();
 		}
 	}
 	ViewUser::addUser();
+
+	ViewTemplate::footer();
+	ViewTemplate::script();
 	?>
 </body>
-<?php 
-ViewTemplate::footer();
-ViewTemplate::script();
+</html>
