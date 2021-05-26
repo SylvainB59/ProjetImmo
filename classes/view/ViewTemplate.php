@@ -39,13 +39,12 @@ class ViewTemplate{
 					if(isset($_SESSION['id'])){
 						?>
 						<p>Bonjour M/Mme <?php echo $_SESSION['nom']; ?></p>
-						<a href="userDeconnexion.php">deconnexion</a>
+						<a href="userDeconnexion.php" class="btn btn-danger">deconnexion</a>
 						<?php
 					}else{
 						?>
-						<a href="userConnexion.php">Connexion</a>
-						<span> / </span>
-						<a href="userInscription.php">Inscription</a>
+						<a href="userConnexion.php" class="btn btn-success">Connexion</a>
+						<a href="userInscription.php" class="btn btn-primary">Inscription</a>
 						<?php
 					}
 					?>

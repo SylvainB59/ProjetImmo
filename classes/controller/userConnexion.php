@@ -21,7 +21,7 @@ ViewTemplate::head();
 			$mdp1 = $_POST['pass'];
 			$mdp2 = $user['pass'];
 			if(Utils::verification($mdp1, $mdp2)){
-				if($user['confirme']==1 && $user['actif']){
+				if($user['confirme']==1 && $user['actif']==1){
 					$_SESSION['id']=$user['id'];
 					$_SESSION['nom']=$user['nom'];
 					$_SESSION['mail']=$user['mail'];

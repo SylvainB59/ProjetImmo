@@ -27,14 +27,15 @@ ViewTemplate::head();
 					$token = base_convert(hash('sha256', time() . mt_rand()), 16, 36);
 					$data['pass']=password_hash($data['pass'], PASSWORD_DEFAULT);
 					ModelUser::addUser($data['nom'], $data['prenom'], $data['mail'], $data['pass'], $data['tel'], $token);
-					ViewTemplate::alert('Inscription enregistrée, veuillez suivre le lien pour la valider => ', 'success', 'confirmationMail.php?mail='.$data['mail'].'&token='.$token, 'Continuer');
+					ViewTemplate::alert('Inscription enregistrée, veuillez suivre le lien pour la valider => ', 'success', 'userConfirmationMail.php?mail='.$data['mail'].'&token='.$token, 'Continuer');
 		        }
 			}else{
-				ViewTemplate::alert('Erreur de Mdp.', 'warning');
+				ViewTemplate::alert('Erreur de Mdp.', 'danger');
 			}
 		}
+	}else{
+		ViewUser::addUser();
 	}
-	ViewUser::addUser();
 
 	ViewTemplate::footer();
 	ViewTemplate::script();

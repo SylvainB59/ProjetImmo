@@ -13,10 +13,10 @@ ViewTemplate::menu();
 			ModelUser::confirmUser($_GET['mail']); // maj en bdd de confirmé et actif -> 1
 			ViewTemplate::alert('Compte confirmé et activé!', 'success', 'userConnexion.php', 'Connexion');
 		}else{
-			ViewTemplate::alert('Confirmation impossible!', 'success', 'userInscription.php', 'Retour');
+			ViewTemplate::alert('Ce user n\'existe pas', 'danger', 'userInscription.php', 'Retour');
 		}
 	}else{
-		ViewTemplate::alert('Confirmation impossible!', 'success', 'userInscription.php', 'Retour');
+		ViewTemplate::alert('Aucune donnée n\'a été transmise', 'danger', 'userInscription.php', 'Retour');
 	}
 	?>
 </body>

@@ -34,6 +34,18 @@ class ModelUser{
 		return $reponse->fetch(PDO::FETCH_ASSOC);
 	}
 
+	public static function resetUserToken($mail, $token){
+		$db = connexion();
+		$reponse = $db->prepare('UPDATE user SET token=? WHERE mail=?');
+		$reponse->execute([$token,$mail]);
+	}
+
+	public static function updateUserMDP($mail, $pass){
+		$db = connexion();
+		$reponse = $db->prepare('UPDATE user SET pass=? WHERE mail=?');
+		$reponse->execute([$pass,$mail]);
+	}
+
 	public static function MdpConnexion($mail){
         $db = connexion();
         $reponse = $db->prepare("SELECT pass FROM user WHERE mail=? ");
