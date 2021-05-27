@@ -17,6 +17,9 @@ ViewTemplate::head();
 
 	if(isset($_POST['confirmConnectUser'])){
 		if(ModelUser::userByMail($_POST['mail'])){
+			$utilisateur = new ModelUser($_POST['mail']);
+			var_dump($utilisateur);
+
 			$user = ModelUser::userByMail($_POST['mail']);
 			$mdp1 = $_POST['pass'];
 			$mdp2 = $user['pass'];
