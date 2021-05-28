@@ -33,6 +33,15 @@ class ViewTemplate{
 					<li class="nav-item">
 			    		<a class="nav-link" href="#">TEST</a>
 			  		</li>
+			  		<?php 
+			  		if(isset($_SESSION['id']) && $_SESSION['role']==1){
+			  			?>
+				  		<li class="nav-item">
+				    		<a class="nav-link" href="typeBienListe.php">Types de bien</a>
+				  		</li>
+				  		<?php
+			  		}
+			  		?>
 				</ul>
 				<div>
 					<?php
@@ -83,5 +92,24 @@ class ViewTemplate{
 	        </p>
         </div>
         <?php
+	}
+
+	public static function modal($modalId, $modalTitre){
+		?>
+		<div class="modal fade" id="<?php echo $modalId; ?>" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+			    <div class="modal-content">
+			      	<div class="modal-header">
+			        	<h5 class="modal-title" id="modalLabel"><?php echo $modalTitre; ?></h5>
+			        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			            	<span aria-hidden="true">&times;</span>
+			            </button>
+			        </div>
+			        <div class="modal-body">aaa
+			        </div>
+			    </div>
+			</div>
+		</div>
+		<?php
 	}
 }

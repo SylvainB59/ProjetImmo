@@ -28,6 +28,7 @@ ViewTemplate::head();
 					$_SESSION['id']=$user['id'];
 					$_SESSION['nom']=$user['nom'];
 					$_SESSION['mail']=$user['mail'];
+					$_SESSION['role']=$user['role'];
 					ViewTemplate::alert('Vous etes maintenant connecté.', 'success', 'accueil.php', 'Accueil');
 				}else{
 					ViewTemplate::alert('Compte pas encore confirmé, ni activé', 'warning', 'userConfirmation.php?mail='.$user['mail'].'&token='.$user['token'], 'Activer maintenant');
