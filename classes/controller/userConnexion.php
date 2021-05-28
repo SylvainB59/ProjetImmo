@@ -17,21 +17,18 @@ ViewTemplate::head();
 
 	if(isset($_POST['confirmConnectUser'])){
 		if(ModelUser::userByMail($_POST['mail'])){
-			$utilisateur = new ModelUser($_POST['mail']);
-			var_dump($utilisateur);
-
-			$user = ModelUser::userByMail($_POST['mail']);
+			$user = new ModelUser($_POST['mail']);
 			$mdp1 = $_POST['pass'];
-			$mdp2 = $user['pass'];
+			$mdp2 = $user->getPass();
 			if(Utils::verification($mdp1, $mdp2)){
-				if($user['confirme']==1 && $user['actif']==1){
-					$_SESSION['id']=$user['id'];
-					$_SESSION['nom']=$user['nom'];
-					$_SESSION['mail']=$user['mail'];
-					$_SESSION['role']=$user['role'];
+				if($user->getConfirme()==1 && $user->getActif()==1){
+					$_SESSION['id']=$user->getId();
+					$_SESSION['nom']=$user->getNom().' '.$user->getPrenom();
+					$_SESSION['mail']=$user->getMail();
+					$_SESSION['role']=$user->getRole();
 					ViewTemplate::alert('Vous etes maintenant connecté.', 'success', 'accueil.php', 'Accueil');
 				}else{
-					ViewTemplate::alert('Compte pas encore confirmé, ni activé', 'warning', 'userConfirmation.php?mail='.$user['mail'].'&token='.$user['token'], 'Activer maintenant');
+					ViewTemplate::alert('Compte pas encore confirmé, ni activé', 'warning', 'userConfirmation.php?mail='.$user->getMail().'&token='.$user->getToken(), 'Activer maintenant');
 				}
 			}else{
 				ViewTemplate::alert('Mauvais mdp', 'danger', 'userConnexion.php', 'Retour');

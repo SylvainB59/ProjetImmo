@@ -31,7 +31,7 @@ class ViewTemplate{
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
-			    		<a class="nav-link" href="#">TEST</a>
+			    		<a class="nav-link" href="accueil.php">Accueil</a>
 			  		</li>
 			  		<?php 
 			  		if(isset($_SESSION['id']) && $_SESSION['role']==1){
