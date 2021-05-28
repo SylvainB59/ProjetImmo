@@ -16,7 +16,7 @@ ViewTemplate::head();
 	 
 	if(isset($_POST['confirmAddUser'])){
 		if(ModelUser::userByMail($_POST['mail'])){
-			ViewTemplate::alert('Mail existe déjà.', 'warning');
+			ViewTemplate::alert('Mail existe déjà.', 'danger', 'userInscription.php', 'retour');
 		}else{
 			if(Utils::confirmationMdp($_POST['pass'],$_POST['confirmPass'])){
 				$donnees = [$_POST['nom'], $_POST['prenom'], $_POST['mail'], $_POST['tel'], $_POST['pass']];
@@ -30,7 +30,7 @@ ViewTemplate::head();
 					ViewTemplate::alert('Inscription enregistrée, veuillez suivre le lien pour la valider => ', 'success', 'userConfirmationMail.php?mail='.$data['mail'].'&token='.$token, 'Continuer');
 		        }
 			}else{
-				ViewTemplate::alert('Erreur de Mdp.', 'danger');
+				ViewTemplate::alert('Erreur de Mdp.', 'danger', 'userInscription.php', 'retour');
 			}
 		}
 	}else{

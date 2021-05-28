@@ -113,8 +113,8 @@ class ModelUser{
 	////////////////////////////////////
 	// CONSTRUCT
 
-	public function __construct($mail){
-		$dataUser = self::userByMail($mail);
+	public function __construct($id){
+		$dataUser = self::userById($id);
 		$this
 			->setId($dataUser['id'])
 			->setNom($dataUser['nom'])

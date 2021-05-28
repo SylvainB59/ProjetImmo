@@ -17,16 +17,16 @@ ViewTemplate::head();
 
 	if(isset($_POST['confirmConnectUser'])){
 		if(ModelUser::userByMail($_POST['mail'])){
-			$user = new ModelUser($_POST['mail']);
-			$mdp1 = $_POST['pass'];
-			$mdp2 = $user->getPass();
-			if(Utils::verification($mdp1, $mdp2)){
+			$idUser = ModelUser::userByMail($_POST['mail'])['id'];
+			$user = new ModelUser($idUser);
+			if(Utils::verification($_POST['pass'], $user->getPass())){
 				if($user->getConfirme()==1 && $user->getActif()==1){
 					$_SESSION['id']=$user->getId();
 					$_SESSION['nom']=$user->getNom().' '.$user->getPrenom();
 					$_SESSION['mail']=$user->getMail();
 					$_SESSION['role']=$user->getRole();
-					ViewTemplate::alert('Vous etes maintenant connecté.', 'success', 'accueil.php', 'Accueil');
+					header('Location: accueil.php');
+					die;
 				}else{
 					ViewTemplate::alert('Compte pas encore confirmé, ni activé', 'warning', 'userConfirmation.php?mail='.$user->getMail().'&token='.$user->getToken(), 'Activer maintenant');
 				}
