@@ -105,7 +105,7 @@ class ViewTemplate{
 			            	<span aria-hidden="true">&times;</span>
 			            </button>
 			        </div>
-			        <div class="modal-body">aaa
+			        <div class="modal-body">
 			        </div>
 			    </div>
 			</div>

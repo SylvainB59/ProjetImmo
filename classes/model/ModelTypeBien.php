@@ -14,11 +14,24 @@ class ModelTypeBien {
 		return $reponse->fetchAll(PDO::FETCH_ASSOC);
 	}
 
+	public static function typeBienById($id){
+		$db = connexion();
+		$reponse = $db->prepare('SELECT * FROM type_bien WHERE id=?');
+		$reponse->execute([$id]);
+		return $reponse->fetch(PDO::FETCH_ASSOC);
+	}
+
 	public static function existTypeBien($libelle){
 		$db = connexion();
 		$reponse = $db->prepare('SELECT * FROM type_bien WHERE libelle=?');
 		$reponse->execute([$libelle]);
 		return $reponse->fetchAll(PDO::FETCH_ASSOC);
+	}
+
+	public static function modifTypeBien($id, $libelle){
+		$db = connexion();
+		$reponse = $db->prepare('UPDATE type_bien SET libelle=? WHERE id=?');
+		$reponse->execute([$libelle, $id]);
 	}
 }
 ?>
