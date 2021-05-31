@@ -32,6 +32,7 @@ function valider(donnees, types, e) {
         const html ='<div class="alert alert-danger" role="alert"> ' + erreurs + "</div>";
         $("#erreurs").html(html);
         e.preventDefault();
+        console.log(e);
     }
 }
 

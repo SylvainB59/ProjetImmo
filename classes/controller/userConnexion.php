@@ -14,6 +14,7 @@ ViewTemplate::head();
 	<?php
 	ViewTemplate::header();
 	ViewTemplate::menu();
+					echo 'yo';
 
 	if(isset($_POST['confirmConnectUser'])){
 		if(ModelUser::userByMail($_POST['mail'])){

@@ -37,10 +37,10 @@ class ViewTypeBien {
 			                <tr>
 			                    <th scope="row"><?php echo $typeBien['id']; ?></th>
 			                    <td><?php echo $typeBien['libelle']; ?></td>
-			                    <!-- <td>
-		                            <a class="btn btn-info" href="ModiftypeBien.php?id=<?php echo $typeBien['id'] ?>" role="button">Modif type de bien</a>
-		                            <a class="btn btn-danger" href="SuppressiontypeBien.php?id=<?php echo $typeBien['id'] ?>" role="button">Suppression type de bien </a>
-		                        </td> -->
+			                    <td>
+		                            <a class="btn btn-info" href="ModifTypeBien.php?id=<?php echo $typeBien['id'] ?>" role="button">Modif</a>
+		                            <a class="btn btn-danger" href="SuppressionTypeBien.php?id=<?php echo $typeBien['id'] ?>" role="button">Suppr</a>
+		                        </td>
 			                </tr>
 			                <?php
 			            }

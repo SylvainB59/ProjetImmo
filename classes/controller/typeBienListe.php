@@ -48,6 +48,13 @@ ViewTemplate::head();
 
 		$('#modalAddTypeBien').submit(function(e){ // vérif type de bien quand on clique sur le bouton du formulaire
 			e.preventDefault();
+			console.log($("#erreurs").html());
+			if($("#erreurs").html()){
+				$("#erreurs").html('');
+			}
+			if($('.alert').length!=0){
+				$('.alert').remove();
+			}
 			let donnee=[
 				$('#addTypeBien #libelle').val()
 			];
@@ -57,7 +64,7 @@ ViewTemplate::head();
             if ($("#erreurs").is(":empty")) {
                 data = tabToObject($('.addTypeBien').serializeArray());
                 data.confirmAddTypeBien = "";
-                modifTypeBien(data, e);
+                modifTypeBien(data);
             }
 		});
 
@@ -72,7 +79,7 @@ ViewTemplate::head();
             return obj;
         }
 
-		function modifTypeBien(data, e) { // envoie du formulaire a typeBienCreation + appel de actualiseTypeBienListe
+		function modifTypeBien(data) { // envoie du formulaire a typeBienCreation + appel de actualiseTypeBienListe
             let request = $.ajax({
                 type: "POST",
                 url: "TypeBienCreation.php",
