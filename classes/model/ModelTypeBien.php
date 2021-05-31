@@ -13,5 +13,12 @@ class ModelTypeBien {
 		$reponse->execute();
 		return $reponse->fetchAll(PDO::FETCH_ASSOC);
 	}
+
+	public static function existTypeBien($libelle){
+		$db = connexion();
+		$reponse = $db->prepare('SELECT * FROM type_bien WHERE libelle=?');
+		$reponse->execute([$libelle]);
+		return $reponse->fetchAll(PDO::FETCH_ASSOC);
+	}
 }
 ?>

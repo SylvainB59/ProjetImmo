@@ -3,10 +3,11 @@ class ViewTypeBien {
 	public static function ajoutTypeBien(){
 		?>
 	<div>
+		<div id="erreurs"></div>
 		<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" name="addTypeBien" class="addTypeBien" id="addTypeBien" target="_self">
 			<div class="form-group">
 				<!-- <label for="libelle">Type de bien</label> -->
-				<input type="text" class="form-control" id="libelle" name="libelle" placeholder="type de bien">
+				<input type="text" class="form-control" id="libelle" name="libelle" placeholder="Libelle">
 			</div>
 		  		<button type="submit" id="confirmAddTypeBien" class="btn btn-primary">Ajouter</button>
 		</form>
@@ -35,7 +36,7 @@ class ViewTypeBien {
 			                ?>
 			                <tr>
 			                    <th scope="row"><?php echo $typeBien['id']; ?></th>
-			                    <td><?php echo $typeBien['type_ref']; ?></td>
+			                    <td><?php echo $typeBien['libelle']; ?></td>
 			                    <!-- <td>
 		                            <a class="btn btn-info" href="ModiftypeBien.php?id=<?php echo $typeBien['id'] ?>" role="button">Modif type de bien</a>
 		                            <a class="btn btn-danger" href="SuppressiontypeBien.php?id=<?php echo $typeBien['id'] ?>" role="button">Suppression type de bien </a>

@@ -25,6 +25,7 @@ class Utils{
         $tabRegex = [
             "non" => "//",
             "test" => '/[\w]123/',
+            "libelle" => "/^[\p{L}\s]{2,}$/u",
             "nom" => "/^[\p{L}\s]{2,}$/u",
             "prenom" => "/^[\p{L}\s]{2,}$/u",
             "tel" => "/^[+]?[0-9]{8,}$/",

@@ -3,6 +3,7 @@ function validation(str, type) {
         id: /^[0-9]+$/,
         nom: /^[a-zA-z\s\p{L}]{2,}$/u,
         prenom: /^[a-zA-z\s\p{L}]{2,}$/u,
+        libelle: /^[a-zA-z\s\p{L}]{2,}$/u,
         tel: /^[0-9]{8,}$/,
         photo: /^[\w]{2,}(.jpg|.jpeg|.png|.gif)$/,
         test: /^[a-zA-Z]+$/,
