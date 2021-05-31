@@ -49,7 +49,6 @@ ViewTemplate::head();
 
 		$('#modalAddTypeBien').submit(function(e){ // vérif type de bien quand on clique sur le bouton du formulaire
 			e.preventDefault();
-			console.log($("#erreurs").html());
 			if($("#erreurs").html()){
 				$("#erreurs").html('');
 			}
@@ -167,10 +166,11 @@ ViewTemplate::head();
             }
 		});
 
-		function modifTypeBien(data) { // envoie du formulaire a typeBienCreation + appel de actualiseTypeBienListe
+		function modifTypeBien(data) { // envoie du formulaire a typeBienModif + appel de actualiseTypeBienListe
+			url = "typeBienModif.php?id="+data.id;
             let request = $.ajax({
                 type: "POST",
-                url: "TypeBienModif.php",
+                url: url,
                 data: data,
                 dataType: "html",
             });

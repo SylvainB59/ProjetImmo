@@ -17,10 +17,5 @@ if(isset($_POST['confirmModifTypeBien'])){
 		ViewTemplate::alert('Type de bien déjà existant.', 'danger');
 	}
 }
-if(isset($_GET['id'])){
-	$idTypeBien=$_GET['id'];
-}else if(isset($_POST['id'])){
-	$idTypeBien=$_POST['id'];
-}
-ViewTypeBien::modifTypeBien($idTypeBien);
+ViewTypeBien::modifTypeBien($_GET['id']);
 ?>
