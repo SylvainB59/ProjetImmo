@@ -90,7 +90,8 @@ ViewTemplate::head();
             request.done(function (response) {
                 $("#modalAddTypeBien .modal-body").html(response);
                 if($('.alert').length==0){
-                	actualiseTypeBienListe(); // si pas d'erreur, actualisation de typeBienListe.php
+                	// actualiseTypeBienListe(); // si pas d'erreur, actualisation de typeBienListe.php
+                	location.reload(); // si pas d'erreur, actualisation de typeBienListe.php
                 }
             });
 
@@ -110,6 +111,7 @@ ViewTemplate::head();
             });
 
             request.done(function (response) {
+            	console.log(response);
                 $("body").html(response);
             });
 
@@ -178,7 +180,8 @@ ViewTemplate::head();
             request.done(function (response) {
                 $("#modalModifTypeBien .modal-body").html(response);
                 if($('.alert').length==0){
-                	actualiseTypeBienListe(); // si pas d'erreur, actualisation de typeBienListe.php
+                	// actualiseTypeBienListe(); // si pas d'erreur, actualisation de typeBienListe.php
+                	location.reload(); // si pas d'erreur, actualisation de typeBienListe.php
                 }
             });
 
