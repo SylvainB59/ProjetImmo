@@ -33,5 +33,11 @@ class ModelTypeBien {
 		$reponse = $db->prepare('UPDATE type_bien SET libelle=? WHERE id=?');
 		$reponse->execute([$libelle, $id]);
 	}
+
+	public static function supprTypeBien($id){
+		$db = connexion();
+		$reponse = $db->prepare('DELETE FROM type_bien WHERE id=?');
+		$reponse->execute([$id]);
+	}
 }
 ?>

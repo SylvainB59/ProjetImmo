@@ -28,6 +28,7 @@ ViewTemplate::head();
 	<script> // AJOUT D'UN NOUVEAU TYPE DE BIEN //
 		$('#btnAddTypeBien').click(function(e){ // ouverture du modal pour l'ajout d'un nouveau type de bien
 			// let modalBody=$(this).data('target')+" .modal-body";
+			console.log($(this).attr('id'));
 			let modalBody="#modalAddTypeBien .modal-body";
 			let request = $.ajax({
                 type: "POST",
@@ -193,6 +194,53 @@ ViewTemplate::head();
             });
         }
 		
+	</script>
+
+	<script> // SUPPR D'UN TYPE DE BIEN //
+		$('.supprTypeBien').click(function(e){
+			e.preventDefault();
+			let url = $(this).data('href')
+			let request = $.ajax({
+                type: "GET",
+                url: url,
+                dataType: "html",
+            });
+
+            request.done(function (response) {
+                $("#modalSupprTypeBien .modal-body").html(response);
+            });
+
+            request.fail(function (http_error) {
+                let server_msg = http_error.responseText;
+                let code = http_error.status;
+                let code_label = http_error.statusText;
+                alert("Erreur " + code + " (" + code_label + ") : " + server_msg);
+            });
+		});
+
+		$('#modalSupprTypeBien').submit(function(e){
+			e.preventDefault();
+			data = tabToObject($('.supprTypeBien').serializeArray());
+            data.confirmSupprTypeBien = "";
+            console.log(data);
+			let request = $.ajax({
+                type: "POST",
+                url: "typeBienSuppr.php?id="+data.id,
+                data: data,
+                dataType: "html",
+            });
+
+            request.done(function (response) {
+                	location.reload(); // suppression du type bien et rechargement de la liste
+            });
+
+            request.fail(function (http_error) {
+                let server_msg = http_error.responseText;
+                let code = http_error.status;
+                let code_label = http_error.statusText;
+                alert("Erreur " + code + " (" + code_label + ") : " + server_msg);
+            });
+		})
 	</script>
 </body>
 </html>

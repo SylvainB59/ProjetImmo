@@ -17,24 +17,6 @@ class ViewTypeBien {
 	<?php
 	}
 
-	public static function modifTypeBien($id){
-		isset($_POST['confirmModifTypeBien']) ? $formSubmit = true : $formSubmit = false;
-		$donnees = ModelTypeBien::typeBienById($id);
-		?>
-	<div>
-		<div id="erreurs"></div>
-		<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" name="modifTypeBien" class="modifTypeBien" id="modifTypeBien" target="_self">
-			<input type="hidden" class="form-control" id="id" name="id" value="<?php echo $donnees['id']; ?>">
-			<div class="form-group">
-				<input type="text" class="form-control" id="libelle" name="libelle" placeholder="Libelle" value="<?php echo $formSubmit?$_POST['libelle']:$donnees['libelle']; ?>">
-			</div>
-		  	<button type="submit" id="confirmModifTypeBien" class="btn btn-primary">valider</button>
-		</form>
-	</div>
-
-	<?php
-	}
-
 	public static function listeTypeBiens($listeTypeBiens){
 		?>
 		<div>
@@ -81,5 +63,37 @@ class ViewTypeBien {
     	ViewTemplate::modal('modalModifTypeBien', 'Modifier le type de bien');
     	ViewTemplate::modal('modalSupprTypeBien', 'Supprimer le type de bien');
     }
+	
+	public static function modifTypeBien($id){
+		isset($_POST['confirmModifTypeBien']) ? $formSubmit = true : $formSubmit = false;
+		$donnees = ModelTypeBien::typeBienById($id);
+		?>
+	<div>
+		<div id="erreurs"></div>
+		<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" name="modifTypeBien" class="modifTypeBien" id="modifTypeBien" target="_self">
+			<input type="hidden" class="form-control" id="id" name="id" value="<?php echo $donnees['id']; ?>">
+			<div class="form-group">
+				<input type="text" class="form-control" id="libelle" name="libelle" placeholder="Libelle" value="<?php echo $formSubmit?$_POST['libelle']:$donnees['libelle']; ?>">
+			</div>
+		  	<button type="submit" id="confirmModifTypeBien" class="btn btn-primary">valider</button>
+		</form>
+	</div>
+
+	<?php
+	}
+
+	public static function supprTypeBien($id){
+		$donnees = ModelTypeBien::typeBienById($id);
+		?>
+	<div>
+		<p>Supprimer le type de bien "<?php echo $donnees['libelle']; ?>"</p>
+		<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" name="supprTypeBien" class="supprTypeBien" id="supprTypeBien" target="_self">
+			<input type="hidden" class="form-control" id="id" name="id" value="<?php echo $donnees['id']; ?>">
+		  	<button type="submit" id="confirmSupprTypeBien" class="btn btn-primary">OK</button>
+		</form>
+	</div>
+
+	<?php
+	}
 }
 ?>

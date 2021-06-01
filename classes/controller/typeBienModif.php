@@ -11,7 +11,7 @@ if(isset($_POST['confirmModifTypeBien'])){
 
         $data = Utils::valider($donnees, $types);
         if($data){
-        	ModelTypeBien::ModifTypeBien($data['id'], $data['libelle']);
+        	ModelTypeBien::modifTypeBien($data['id'], $data['libelle']);
         }
 	}else{
 		ViewTemplate::alert('Type de bien déjà existant.', 'danger');
